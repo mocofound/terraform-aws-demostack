@@ -93,7 +93,7 @@ resource "tls_private_key" "workers" {
 # Client signing request
 resource "tls_cert_request" "workers" {
   count           = var.workers
-  key_algorithm   = element(tls_private_key.workers.*.algorithm, count.index)
+  #key_algorithm   = element(tls_private_key.workers.*.algorithm, count.index)
   private_key_pem = element(tls_private_key.workers.*.private_key_pem, count.index)
 
   subject {
